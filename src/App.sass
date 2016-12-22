@@ -1,0 +1,46 @@
+.story
+  background: #eee
+  color: #333
+  font-size: 1.25rem
+  padding: 0.4rem
+  transition: all 250ms ease-in-out
+  text-align: center
+  &:hover
+    transform: scale(1.05, 1.05)
+    background: #333
+    color: #16FF18
+    cursor: pointer
+    overflow: visible
+
+
+.story_container
+  width: 91%
+  border: 1px solid black
+  height: 200px
+  background: #112523
+  overflow: hidden
+
+
+
+// Animation for the stories
+
+.scroller_animation
+  animation: scroller 6s linear 0s infinite
+  &.is_paused
+    animation-play-state: paused
+  &:hover
+    animation-play-state: paused
+
+
+@keyframes scroller
+  0%
+
+  100%
+    transform: translateY(calc(-100% + 200px))
+
+
+// Placeholder text
+.placeholder
+  position: relative
+  text-align: center
+  vertical-align: middle
