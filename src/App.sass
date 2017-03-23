@@ -3,10 +3,11 @@
   color: #333
   font-size: 1.25rem
   padding: 0.4rem
+  padding-left: 1rem
   transition: all 250ms ease-in-out
-  text-align: center
+  text-align: left
   &:hover
-    transform: scale(1.05, 1.05)
+    transform: scale(1.02, 1.02)
     background: #333
     color: #16FF18
     cursor: pointer
@@ -25,7 +26,9 @@
 // Animation for the stories
 
 .scroller_animation
-  animation: scroller 6s linear 0s infinite
+  animation-name: scroller
+  animation-timing-function: linear
+  animation-duration: 0s
   &.is_paused
     animation-play-state: paused
   &:hover
@@ -44,3 +47,7 @@
   position: relative
   text-align: center
   vertical-align: middle
+
+.header
+  display: flex
+  justify-content: space-between

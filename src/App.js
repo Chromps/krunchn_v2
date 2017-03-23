@@ -15,16 +15,19 @@ class App extends Component {
   }
   componentWillMount(){
 
-    axios.get("http://feedstore.kmworks.com/cgi-bin/getItemsZ.php")
+    axios.get("http://127.0.0.1:8080/krtest")
       .then(({ data }) => {
         this.setState({
           stories: data
         })
+
         document.querySelector('.all_stories').classList.add("scroller_animation");
+        document.querySelector('.all_stories').style.animationDuration = `${this.state.stories.length}s`;
+        console.log(this.state.stories.length, "stories");
         console.log("success")
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
       })
 
   }
@@ -41,8 +44,18 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <span>Krunch'n</span>
-          <button onClick={() => {this.playPauseHandler()}}>{animation ? "Pause" : "Play"}</button>
+          <div className="header">
+            <div className="logo">
+              Krunch'N
+            </div>
+            <div>
+              Welcome, {this.state.userName}
+            </div>
+          </div>
+          <button className="btn playPause"
+             onClick={() => {this.playPauseHandler()}}>
+             {animation ? "Pause" : "Play"}
+           </button>
           <div className="story_container">
             <div className="all_stories">
 
